@@ -53,13 +53,12 @@
         <section>
             <div ng-if="VrackCtrl.description || VrackCtrl.descriptionEditing">
                 <h2 class="vrack__section-title" data-translate="vrack_description_title"></h2>
-                <form name="descriptionForm" class="" data-ng-class="{'has-error': descriptionForm.description.$invalid}">
+                <form name="descriptionForm" data-ng-class="{'has-error': descriptionForm.description.$invalid}">
                     <div class="form-group" ng-if="VrackCtrl.descriptionEditing">
                         <textarea id="description"
                             name="description"
                             class="form-control vertical-resize ng-touched"
                             rows="4"
-                            ng-change="VrackCtrl.getRawValue(descriptionForm)"
                             data-ng-model="VrackCtrl.description"
                             data-ng-maxLength="VrackCtrl.descriptionOptions.maxLength">
                         </textarea>
@@ -75,7 +74,7 @@
                             <i class="ovh-font ovh-font-wrong"></i>
                         </button>
                         <span class="pull-right"
-                              data-ng-class="{'vrack__error-exceed_count': descriptionForm.description.$invalid}"
+                              data-ng-class="{'text-danger': descriptionForm.description.$invalid}"
                               data-translate="vrack_cloud_description_character_count"
                               data-translate-values="{ count: descriptionForm.description.$viewValue.length,
                                                        max: VrackCtrl.descriptionOptions.maxLength }"></span>
