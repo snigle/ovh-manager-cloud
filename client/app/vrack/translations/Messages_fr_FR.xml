@@ -17,6 +17,7 @@
    <translation id="vrack_cloud_name_max_length" qtlid="349281">Le nom ne peut excéder {{ max }} caractères.</translation>
    <translation id="vrack_cloud_name_pattern" qtlid="349294">Le nom doit débuter par une lettre et ne peut contenir d'espaces.</translation>
    <translation id="vrack_cloud_no_description">Ajouter une description à ce vRack</translation>
+   <translation id="vrack_cloud_no_description_title">Cliquer pour ajouter une description à ce vRack</translation>
    <translation id="vrack_cloud_description_max_length">Le description ne peut excéder {{ max }} caractères.</translation>
    <translation id="vrack_cloud_description_character_count">Caractères utilisés : {{ count }} / {{ max }}</translation>
    <translation id="vrack_private_cloud_vm_network_label" qtlid="353361">vm-network</translation>

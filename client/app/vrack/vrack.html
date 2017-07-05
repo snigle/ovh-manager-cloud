@@ -97,8 +97,10 @@
             </div>
             <div ng-if="!VrackCtrl.description && !VrackCtrl.descriptionEditing">
                 <p class="vrack__text vrack__empty-description-text">
-                    <a ng-click="VrackCtrl.editDescription()"
-                      data-translate="vrack_cloud_no_description"></a>
+                    <button class="btn-link nopadding"
+                        ng-click="VrackCtrl.editDescription()"
+                        data-translate="vrack_cloud_no_description"
+                        title="{{'vrack_cloud_no_description_title' | translate }}"></button>
                 </p>
             </div>
         </section>
