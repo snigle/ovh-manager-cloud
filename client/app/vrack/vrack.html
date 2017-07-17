@@ -1,6 +1,8 @@
 <section class="vrack" ng-if="VrackCtrl.serviceName" class="row">
         <header class="vrack__header" data-ng-if="VrackCtrl.nameEditing">
-            <form name="nameForm" class="vrack__edit-form" data-ng-class="{'has-error': nameForm.name.$invalid}">
+            <form name="nameForm" class="vrack__edit-form"
+                  data-ng-class="{'has-error': nameForm.name.$invalid}"
+                  data-ng-submit="VrackCtrl.saveName()">
                 <input id="name"
                        name="name"
                        type="text"
@@ -10,14 +12,16 @@
                        data-ng-pattern="VrackCtrl.nameOptions.pattern">
                 </input>
                 <button class="vrack__edit-button vrack__edit-button_save btn btn-icon"
-                        type="submit" data-ng-click="VrackCtrl.saveName()"
+                        type="submit"
+                        title="{{'vrack_cloud_save_name' | translate }}"
                         data-ng-disabled="nameForm.name.$invalid">
-                    <i class="ovh-font ovh-font-check"></i>
+                    <i class="ovh-font ovh-font-check" aria-hidden="true"></i>
                 </button>
                 <button class="vrack__edit-button vrack__edit-button_cancel btn btn-icon"
                         type="reset"
+                        title="{{'vrack_cloud_reset_name' | translate }}"
                         data-ng-click="VrackCtrl.cancelEditName()">
-                    <i class="ovh-font ovh-font-wrong"></i>
+                    <i class="ovh-font ovh-font-wrong" aria-hidden="true"></i>
                 </button>
 
                 <ul class="vrack__error-list vrack__error-list_in-header list-unstyled has-error"
@@ -41,11 +45,12 @@
             </div>
             <button class="vrack__edit-button btn btn-icon"
                     type="button"
+                    title="{{'vrack_cloud_modiy_name' | translate }}"
                     data-ng-click="VrackCtrl.editName()">
-                <i class="ovh-font ovh-font-editer"></i>
+                <i class="ovh-font ovh-font-editer" aria-hidden="true"></i>
             </button>
             <a class="vrack__header-guide-link" href="#" data-ng-if="VrackCtrl.hasVrackGuideUrl()">
-                <i class="vrack__header-guide-link-icon fa fa-lg fa-life-ring"></i>
+                <i class="vrack__header-guide-link-icon fa fa-lg fa-life-ring" aria-hidden="true"></i>
                 {{ ::"vrack_guide_link_text" | translate }}
             </a>
         </header>
@@ -53,7 +58,7 @@
         <section>
             <div ng-if="VrackCtrl.description || VrackCtrl.descriptionEditing">
                 <h2 class="vrack__section-title" data-translate="vrack_description_title"></h2>
-                <form name="descriptionForm" data-ng-class="{'has-error': descriptionForm.description.$invalid}">
+                <form name="descriptionForm" data-ng-class="{'has-error': descriptionForm.description.$invalid}" ng-submit="VrackCtrl.saveDescription()">
                     <div class="form-group" ng-if="VrackCtrl.descriptionEditing">
                         <textarea id="description"
                             name="description"
@@ -64,14 +69,15 @@
                         </textarea>
                         <button class="vrack__edit-button vrack__edit-button_save btn btn-icon"
                                 type="submit"
-                                data-ng-click="VrackCtrl.saveDescription()"
+                                title="{{'vrack_cloud_save_description' | translate }}"
                                 data-ng-disabled="descriptionForm.description.$invalid">
-                            <i class="ovh-font ovh-font-check"></i>
+                            <i class="ovh-font ovh-font-check" aria-hidden="true"></i>
                         </button>
                         <button class="vrack__edit-button vrack__edit-button_cancel btn btn-icon"
                                 type="reset"
+                                title="{{'vrack_cloud_reset_description' | translate }}"
                                 data-ng-click="VrackCtrl.cancelEditDescription()">
-                            <i class="ovh-font ovh-font-wrong"></i>
+                            <i class="ovh-font ovh-font-wrong" aria-hidden="true"></i>
                         </button>
                         <span class="pull-right"
                               data-ng-class="{'text-danger': descriptionForm.description.$invalid}"
@@ -90,17 +96,19 @@
                     <span class="vrack__description vrack__description ng-scope" data-ng-bind="VrackCtrl.description"></span>
                     <button class="btn btn-icon"
                             type="button"
+                            title="{{'vrack_cloud_modiy_description' | translate }}"
                             data-ng-click="VrackCtrl.editDescription()">
-                        <i class="ovh-font ovh-font-editer"></i>
+                        <i class="ovh-font ovh-font-editer" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
             <div ng-if="!VrackCtrl.description && !VrackCtrl.descriptionEditing">
                 <p class="vrack__text vrack__empty-description-text">
                     <button class="btn-link no-padding"
-                        ng-click="VrackCtrl.editDescription()"
-                        data-translate="vrack_cloud_no_description"
-                        title="{{'vrack_cloud_no_description_title' | translate }}"></button>
+                            type="button"
+                            ng-click="VrackCtrl.editDescription()"
+                            data-translate="vrack_cloud_no_description"
+                            title="{{ 'vrack_cloud_no_description_title' | translate }}"></button>
                 </p>
             </div>
         </section>
